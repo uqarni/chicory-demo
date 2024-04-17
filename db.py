@@ -7,7 +7,7 @@ def initialize_prompt_and_text(session_state):
     key: str = os.environ.get("SUPABASE_KEY")
 
     supabase: Client = create_client(url, key)
-    data, count = supabase.table("bots_dev").select("*").eq("id", "spencer").execute()
+    data, count = supabase.table("bots_dev").select("*").eq("id", "cole").execute()
     bot_info = data[1][0]
 
     system_prompt = bot_info['system_prompt']
@@ -16,7 +16,7 @@ def initialize_prompt_and_text(session_state):
         'lead_first_name': session_state.lead_first_name,
         'lead_last_name': session_state.lead_last_name,
         'lead_email': session_state.lead_email,
-        'agent_name': 'Spencer',
+        'agent_name': 'Cole',
         'booking_link': session_state.booking_link
     }
     initial_text = initial_text.format(**to_format)
