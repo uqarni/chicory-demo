@@ -13,6 +13,8 @@ st.sidebar.write('modify these then press Start/Restart on the right')
 lead_first_name = st.sidebar.text_input("Lead First Name", value = "Susan")
 lead_last_name = st.sidebar.text_input("Lead Last Name", value = "Smith")
 lead_email = st.sidebar.text_input("Lead Email", value = "susan@gmail.com")
+company_name = st.sidebar.text_input("Company Name", value = "Acme Co")
+company_description = st.sidebar.text_area("Company Description", value = "Acme Co is proud to be the third largest bricks provider in Southeast Nebraska. We create a variety of bricks. Red bricks, blue bricks, even green bricks. We have small bricks and large bricks. If you need decent bricks for your construction project, call us today.")
 booking_link = st.sidebar.text_input("Booking Link", value = "www.calendly.com/chicory/30-min-meeting")
 temp = 0#st.sidebar.slider("Temperature", min_value = 0.0, max_value = 1.0, value = 0.0, step = 0.1)
 model = "gpt-4-turbo"#st.sidebar.selectbox("Model", ["gpt-4-1106-preview", "gpt-3.5-turbo"])
@@ -31,6 +33,8 @@ if st.button("Start/Restart"):
     st.session_state.lead_first_name = lead_first_name
     st.session_state.lead_last_name = lead_last_name
     st.session_state.lead_email = lead_email
+    st.session_state.company_name = company_name
+    st.session_state.company_description = company_description
     st.session_state.booking_link = booking_link
     st.session_state.temp = temp
     st.session_state.model = model
