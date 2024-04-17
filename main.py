@@ -15,7 +15,7 @@ lead_last_name = st.sidebar.text_input("Lead Last Name", value = "Smith")
 lead_email = st.sidebar.text_input("Lead Email", value = "susan@gmail.com")
 booking_link = st.sidebar.text_input("Booking Link", value = "www.chilipiper.com/spoton/firstname%lastname%phone_number=True%SFID=True")
 temp = 0#st.sidebar.slider("Temperature", min_value = 0.0, max_value = 1.0, value = 0.0, step = 0.1)
-model = "gpt-4-1106-preview"#st.sidebar.selectbox("Model", ["gpt-4-1106-preview", "gpt-3.5-turbo"])
+model = "gpt-4-turbo"#st.sidebar.selectbox("Model", ["gpt-4-1106-preview", "gpt-3.5-turbo"])
 max_tokens = 200#st.sidebar.slider("Max Tokens", min_value = 50, max_value = 500, value = 200, step = 50)
 ####Main Bar
     
