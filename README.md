@@ -1,1 +1,1 @@
-# improovy-demo
+# chicory-demo
