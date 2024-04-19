@@ -1,5 +1,5 @@
 import streamlit as st
-from db import initialize_prompt_and_text
+from db import initialize_prompt_and_text, get_initial_message
 from llm import generate_responses
 from openai import OpenAI
 import dotenv
@@ -13,6 +13,7 @@ st.sidebar.write('modify these then press Start/Restart on the right')
 lead_first_name = st.sidebar.text_input("Lead First Name", value = "Susan")
 lead_last_name = st.sidebar.text_input("Lead Last Name", value = "Smith")
 lead_email = st.sidebar.text_input("Lead Email", value = "susan@gmail.com")
+initial_message = st.sidebar.selectbox("Initial Message", options = get_initial_message(), index = 0)
 company_name = st.sidebar.text_input("Company Name", value = "Acme Co")
 company_description = st.sidebar.text_area("Company Description", value = "Acme Co is proud to be the third largest bricks provider in Southeast Nebraska. We create a variety of bricks. Red bricks, blue bricks, even green bricks. We have small bricks and large bricks. If you need decent bricks for your construction project, call us today.")
 booking_link = st.sidebar.text_input("Booking Link", value = "www.calendly.com/chicory/30-min-meeting")
@@ -46,6 +47,7 @@ if "messages" in st.session_state:
     #Initialize system prompt and initial text
     if st.session_state.get('system_prompt') is None and st.session_state.get('initial_text') is None:
         initialize_prompt_and_text(st.session_state)
+        initial_message = get_initial_message(initial_message)
 
     if "openai_model" not in st.session_state:
         st.session_state["openai_model"] = "gpt-4-1106-preview"
