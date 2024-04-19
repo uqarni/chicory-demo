@@ -10,6 +10,16 @@ def initialize_prompt(session_state):
     data, count = supabase.table("bots_dev").select("*").eq("id", "cole").execute()
     bot_info = data[1][0]
 
+    to_format = {
+        'lead_first_name': session_state.lead_first_name,
+        'lead_last_name': session_state.lead_last_name,
+        'lead_email': session_state.lead_email,
+        'agent_name': 'Cole',
+        'company_name': session_state.company_name,
+        'company_description': session_state.company_description,
+        'booking_link': session_state.booking_link
+    }
+    
     system_prompt = bot_info['system_prompt']
     system_prompt = system_prompt.format(**to_format)
     session_state.system_prompt = system_prompt
