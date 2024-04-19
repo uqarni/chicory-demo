@@ -15,7 +15,7 @@ def initialize_prompt(session_state):
     session_state.system_prompt = system_prompt
 
 
-def get_initial_message(key):
+def get_initial_message(key = None):
     initial_messages = {
         "hiring_engineer": """{first_name},
     
