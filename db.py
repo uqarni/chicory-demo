@@ -27,7 +27,7 @@ def initialize_prompt(session_state):
 
 def get_initial_message(key = None):
     initial_messages = {
-        "hiring_engineer": """{first_name},
+        "hiring_engineer": """{lead_first_name},
     
     I saw that you are hiring data engineers. Typically this means that there is a backlog of tickets that need attention. Have you considered any generative AI automations to replace some of the data engineering tasks?
     
@@ -40,7 +40,7 @@ def get_initial_message(key = None):
     + 1 206-330-7817
     Unsubscribe | Book a time""",
     
-        "on_call_engineer": """{first_name},
+        "on_call_engineer": """{lead_first_name},
     
     Noticed that you are part of the data team at {company_name}. I'm curious, have you considered any generative AI automations to replace some of your on-call engineering tasks? We can help you add hours back to your day.
     
@@ -53,7 +53,7 @@ def get_initial_message(key = None):
     + 1 206-330-7817
     Unsubscribe | Book a time""",
     
-        "missed_timeline": """{first_name},
+        "missed_timeline": """{lead_first_name},
     
     Do you have any ongoing data migrations at the moment? Our team spent years at Apple and Amazon running similar projects and are now building generative AI automations to help folks like {company_name}. 
     
@@ -66,7 +66,7 @@ def get_initial_message(key = None):
     + 1 206-330-7817
     Unsubscribe | Book a time""",
     
-        "repetitive_schema": """{first_name},
+        "repetitive_schema": """{lead_first_name},
     
     Are you frustrated to create the same db schema over and over again? 
     
