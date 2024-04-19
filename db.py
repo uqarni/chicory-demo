@@ -1,7 +1,7 @@
 from supabase import create_client, Client
 import os
 
-def initialize_prompt_and_text(session_state):
+def initialize_prompt(session_state):
     #connect to supabase database
     url: str = os.environ.get("SUPABASE_URL")
     key: str = os.environ.get("SUPABASE_KEY")
@@ -11,22 +11,9 @@ def initialize_prompt_and_text(session_state):
     bot_info = data[1][0]
 
     system_prompt = bot_info['system_prompt']
-    initial_text = bot_info['initial_text']
-    to_format = {
-        'lead_first_name': session_state.lead_first_name,
-        'lead_last_name': session_state.lead_last_name,
-        'lead_email': session_state.lead_email,
-        'agent_name': 'Cole',
-        'company_name': session_state.company_name,
-        'company_description': session_state.company_description,
-        'booking_link': session_state.booking_link
-    }
-    initial_text = initial_text.format(**to_format)
     system_prompt = system_prompt.format(**to_format)
-
     session_state.system_prompt = system_prompt
-    session_state.initial_text = initial_text
-    session_state.messages.insert(0, {'role': 'assistant', 'content': initial_text})
+
 
 def get_initial_message(key):
     initial_messages = {
@@ -90,4 +77,19 @@ def get_initial_message(key):
     else:
         return initial_messages.keys()
 
-    
+def format_initial_message(im):
+        to_format = {
+        'lead_first_name': session_state.lead_first_name,
+        'lead_last_name': session_state.lead_last_name,
+        'lead_email': session_state.lead_email,
+        'agent_name': 'Cole',
+        'company_name': session_state.company_name,
+        'company_description': session_state.company_description,
+        'booking_link': session_state.booking_link
+    }
+    initial_text = initial_text.format(**to_format)
+
+
+
+    session_state.initial_text = initial_text
+    session_state.messages.insert(0, {'role': 'assistant', 'content': initial_text})
