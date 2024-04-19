@@ -1,5 +1,5 @@
 import streamlit as st
-from db import initialize_prompt_and_text, get_initial_message
+from db import initialize_prompt, get_initial_message, format_initial_message
 from llm import generate_responses
 from openai import OpenAI
 import dotenv
@@ -46,8 +46,9 @@ if "messages" in st.session_state:
 
     #Initialize system prompt and initial text
     if st.session_state.get('system_prompt') is None and st.session_state.get('initial_text') is None:
-        initialize_prompt_and_text(st.session_state)
+        initialize_prompt(st.session_state)
         initial_message = get_initial_message(initial_message)
+        format_initial_message(initial_message)
 
     if "openai_model" not in st.session_state:
         st.session_state["openai_model"] = "gpt-4-1106-preview"
