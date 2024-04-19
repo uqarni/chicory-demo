@@ -27,9 +27,9 @@ def initialize_prompt(session_state):
 
 def get_initial_message(key = None):
     initial_messages = {
-        "hiring_engineer": "{lead_first_name},\n\nI saw that you are hiring data engineers. Typically this means that there is a backlog of tickets that need attention. Have you considered any generative AI automations to replace some of the data engineering tasks?\n\nLet me know if I can share a brief video we put together for {company_name}.\n\nCole \n\nCole Thomas\nGrowth @ Chicory\n1 206-330-7817 \nUnsubscribe | Book a time",
+        "hiring_engineer": "{lead_first_name},\n\nI saw that you are hiring data engineers. Typically this means that there is a backlog of tickets that need attention. Have you considered any generative AI automations to replace some of the data engineering tasks?\n\nLet me know if I can share a brief video we put together for {company_name}.\n\nCole \n\nCole Thomas \nGrowth @ Chicory \n1 206-330-7817 \nUnsubscribe | Book a time",
     
-        "on_call_engineer": "{lead_first_name},\n\nNoticed that you are part of the data team at {company_name}. I'm curious, have you considered any generative AI automations to replace some of your on-call engineering tasks? We can help you add hours back to your day.\n\nLet me know if I can share a brief video my CEO put together for {company_name}.\n\nCole \n\nCole Thomas\nGrowth @ Chicory\n1 206-330-7817 \nUnsubscribe | Book a time",
+        "on_call_engineer": "{lead_first_name},\n\nNoticed that you are part of the data team at {company_name}. I'm curious, have you considered any generative AI automations to replace some of your on-call engineering tasks? We can help you add hours back to your day.\n\nLet me know if I can share a brief video my CEO put together for {company_name}.\n\nCole \n\nCole Thomas \nGrowth @ Chicory \n1 206-330-7817 \nUnsubscribe | Book a time",
     
         "missed_timeline": "{lead_first_name},\n\nDo you have any ongoing data migrations at the moment? Our team spent years at Apple and Amazon running similar projects and are now building generative AI automations to help folks like {company_name}. \n\nLet me know if I can share a brief video my CEO put together for you.\n\nCole \n\nCole Thomas\nGrowth @ Chicory\n1 206-330-7817 \nUnsubscribe | Book a time",
     
