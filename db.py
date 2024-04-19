@@ -77,7 +77,7 @@ def get_initial_message(key):
     else:
         return initial_messages.keys()
 
-def format_initial_message(im):
+def format_initial_message(im, session_state):
         to_format = {
         'lead_first_name': session_state.lead_first_name,
         'lead_last_name': session_state.lead_last_name,
@@ -87,7 +87,7 @@ def format_initial_message(im):
         'company_description': session_state.company_description,
         'booking_link': session_state.booking_link
     }
-    initial_text = initial_text.format(**to_format)
+    initial_text = im.format(**to_format)
 
 
 
