@@ -48,7 +48,7 @@ if "messages" in st.session_state:
     if st.session_state.get('system_prompt') is None and st.session_state.get('initial_text') is None:
         initialize_prompt(st.session_state)
         initial_message = get_initial_message(initial_message)
-        format_initial_message(initial_message)
+        format_initial_message(initial_message, st.session_state)
 
     if "openai_model" not in st.session_state:
         st.session_state["openai_model"] = "gpt-4-1106-preview"
