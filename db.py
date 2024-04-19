@@ -78,7 +78,7 @@ def get_initial_message(key):
         return initial_messages.keys()
 
 def format_initial_message(im, session_state):
-        to_format = {
+    to_format = {
         'lead_first_name': session_state.lead_first_name,
         'lead_last_name': session_state.lead_last_name,
         'lead_email': session_state.lead_email,
