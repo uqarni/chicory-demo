@@ -27,7 +27,10 @@ def generate_streaming_response(self, messages, model = 'gpt-4-turbo-preview', m
         error_message = f"Attempt failed: {e}"
         print(error_message)
 
-
+def remove_signature(text):
+    pattern = r"(Best,|Cheers,).*"
+    cleaned_text = re.sub(pattern, "", text, flags=re.DOTALL)
+    return cleaned_text
 
 #generate openai response; returns messages with openai response
 def generate_responses(session_state):
@@ -41,6 +44,16 @@ def generate_responses(session_state):
 
   response = openai.chat.completions.create(model=session_state.model, messages=[system_prompt , *messages], max_tokens=session_state.max_tokens, temperature = session_state.temp)
   response = response.choices[0].message.content
+  signature = '''<p>Cole <br> Cole Thomas <br>Growth @ Chicory <br>1 206-330-7817<br>Unsubscribe | Book a time</p> <br>'''
+  response = remove_signature(response)
+  response = f"""\
+    <html>
+      <head></head>
+      <body>
+        <div dir="ltr"> {response}{signature} </div>
+      </body>
+    </html>
+    """
   session_state.messages.append({"role": "assistant", "content": response})
   st.rerun()
   # 
