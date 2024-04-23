@@ -72,9 +72,7 @@ def generate_responses(session_state):
 
   response = openai.chat.completions.create(model=session_state.model, messages=[system_prompt , *messages], max_tokens=session_state.max_tokens, temperature = session_state.temp)
   response = response.choices[0].message.content
-  split_response = split_sms(response)
-  for section in split_response:
-    session_state.messages.append({"role": "assistant", "content": section})
+  session_state.messages.append({"role": "assistant", "content": response})
   st.rerun()
   # 
 
