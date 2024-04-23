@@ -50,7 +50,7 @@ def generate_responses(session_state):
     <html>
       <head></head>
       <body>
-        <div dir="ltr"> {response}{signature} </div>
+        <div dir="ltr"> {response}<br> {signature}</div>
       </body>
     </html>
     """
