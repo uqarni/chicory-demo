@@ -28,37 +28,6 @@ def generate_streaming_response(self, messages, model = 'gpt-4-turbo-preview', m
         print(error_message)
 
 
-def split_sms(message):
-    import re
-
-    # Use regular expressions to split the string at ., !, or ? followed by a space or newline
-    sentences = re.split('(?<=[.!?]) (?=\\S)|(?<=[.!?])\n', message.strip())
-    # Strip leading and trailing whitespace from each sentence
-    sentences = [sentence.strip() for sentence in sentences if sentence.strip()]
-
-    # Compute the cumulative length of all sentences
-    cum_length = [0]
-    for sentence in sentences:
-        cum_length.append(cum_length[-1] + len(sentence))
-    
-    total_length = cum_length[-1]
-
-    # Find the splitting point
-    split_point = next(i for i, cum_len in enumerate(cum_length) if cum_len >= total_length / 2)
-
-    # Split the sentences into two parts at the splitting point
-    part1 = sentences[:split_point]
-    part2 = sentences[split_point:]
-
-    # Join the sentences in each part back into strings and exclude any part that is empty
-    strings = []
-    if part1:
-        strings.append(" ".join(part1))
-    if part2:
-        strings.append(" ".join(part2))
-    
-    return strings
-
 
 #generate openai response; returns messages with openai response
 def generate_responses(session_state):
