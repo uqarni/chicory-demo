@@ -33,7 +33,7 @@ def get_initial_message(key = None):
     
         "missed_timeline": "{lead_first_name},\n\nDo you have any ongoing data migrations at the moment? Our team spent years at Apple and Amazon running similar projects and are now building generative AI automations to help folks like {company_name}. \n\nLet me know if I can share a brief video my CEO put together for you.\n\nCole \n\nCole Thomas\n\nGrowth @ Chicory\n\n1 206-330-7817 \n\nUnsubscribe | Book a time",
     
-        "repetitive_schema": "{lead_first_name},\n\nAre you frustrated to create the same db schema over and over again? \n\nI ask because I'm looking for feedback. We build generative AI automations to replace repetitive data engineering tasks. We have built similar in the past for companies like Apple and Amazon. \n\nAre you open to sharing how we could build it to help {company_name}? \n\nCole \n\nCole Thomas \n\nGrowth @ Chicory \n\n1 206-330-7817 \n\nUnsubscribe | Book a time"
+        "repetitive_schema": "{lead_first_name},\n\nAre you tired of creating the same db schema over and over again? \n\nI ask because I'm looking for feedback. We build generative AI automations to replace repetitive data engineering tasks. We have built similar in the past for companies like Apple and Amazon. \n\nAre you open to sharing how we could build it to help {company_name}? \n\nCole \n\nCole Thomas \n\nGrowth @ Chicory \n\n1 206-330-7817 \n\nUnsubscribe | Book a time"
     }
 
     if key:
